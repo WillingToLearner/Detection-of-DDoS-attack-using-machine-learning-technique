@@ -16,16 +16,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_curve, auc
-from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
-from itertools import cycle
 import random
-from sklearn.tree import export_graphviz
-from IPython.display import Image
-import graphviz
+
 
 from google.colab import drive
 drive.mount('/content/drive')
@@ -159,42 +154,6 @@ print(f'Precision: {rf_precision:.4f}')
 print(f'Recall: {rf_recall:.4f}')
 num_decision_trees = rf_model.n_estimators
 print(f'Number of Decision Trees in Random Forest: {num_decision_trees}')
-
-nb_model = GaussianNB()
-nb_model.fit(X_train, y_train)
-nb_pred = nb_model.predict(SAMPLEX)
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_curve, auc, confusion_matrix
-from sklearn import metrics
-rf_accuracy = accuracy_score(SAMPLEY, nb_pred)
-rf_f1 = f1_score(SAMPLEY, nb_pred)
-rf_precision = precision_score(SAMPLEY, nb_pred)
-rf_recall = recall_score(SAMPLEY, nb_pred)
-print("Confusion Matrix =\n", metrics.confusion_matrix(SAMPLEY, nb_pred, labels=None,
-                                              sample_weight=None))
-
-print('\nNaive bayes:')
-print(f'Accuracy: {rf_accuracy:.4f}')
-print(f'F1 Score: {rf_f1:.4f}')
-print(f'Precision: {rf_precision:.4f}')
-print(f'Recall: {rf_recall:.4f}')
-
-knn_model = KNeighborsClassifier(n_neighbors=257, p=2,metric='euclidean')
-knn_model.fit(X_train, y_train)
-knn_pred = knn_model.predict(SAMPLEX)
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_curve, auc, confusion_matrix
-from sklearn import metrics
-rf_accuracy = accuracy_score(SAMPLEY, knn_pred)
-rf_f1 = f1_score(SAMPLEY, knn_pred)
-rf_precision = precision_score(SAMPLEY, knn_pred)
-rf_recall = recall_score(SAMPLEY, knn_pred)
-print("Confusion Matrix =\n", metrics.confusion_matrix(SAMPLEY, knn_pred, labels=None,
-                                              sample_weight=None))
-
-print('\nK Nearest Neighbour:')
-print(f'Accuracy: {rf_accuracy:.4f}')
-print(f'F1 Score: {rf_f1:.4f}')
-print(f'Precision: {rf_precision:.4f}')
-print(f'Recall: {rf_recall:.4f}')
 
 data_f = pd.read_csv('/content/drive/MyDrive/2024-03-25_Flow.csv')
 
