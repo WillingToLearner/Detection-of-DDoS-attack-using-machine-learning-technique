@@ -20,3 +20,7 @@ DDoS datasets. The merits and limits of these datasets in accurately detecting a
 of Service (DDoS) attacks are demonstrated through extensive research and evaluation. Our findings 
 emphasize the necessity of using open datasets to train and evaluate intrusion detection systems, providing 
 vital insights into their effectiveness in real-world scenarios.
+
+
+for dataset use this link below:
+https://drive.google.com/file/d/17fLuMl4yZnintptvc5U934qWWGRXfAZ6/view?usp=drive_link
